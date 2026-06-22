@@ -6,7 +6,8 @@ AIRAlock inspects research output files before they leave an Aridhia Digital Res
 
 The governing principle is simple and binding: **the rule engine classifies, AIRA narrates, the reviewer decides.** AIRA never produces a competing verdict, never overrides a classification, and never writes audit entries.
 
-There is a video of how to use AIRAlock here: https://scribehow.com/embed-preview/Conducting_a_Data_Airlock_Review_and_Approval__jHS7L0YoSKGhqMsc8irNqA?as=video&size=flexible&voice=shimmer&scaleMode=contain
+You can view a video of how to use AIRA here: https://scribehow.com/embed-preview/Conducting_a_Data_Airlock_Review_and_Approval__jHS7L0YoSKGhqMsc8irNqA?as=video&size=flexible&voice=shimmer&scaleMode=contain
+
 ---
 
 ## Status
