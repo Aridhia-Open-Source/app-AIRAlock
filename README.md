@@ -282,6 +282,7 @@ Specific inspectors degrade gracefully when these are absent:
 | Package | Without it |
 |---|---|
 | pdftools | PDF text extraction; PDF rules return UNCERTAIN |
+| arrow    | AIRA_BASE_URL_DEFAULT | 
 | oro.dicom | DICOM tag inspection; DICOM files return UNCERTAIN |
 | oro.nifti | NIfTI header reading; pixel-data rules disabled |
 | haven | SAS, Stata, and SPSS reading; statistical files return UNCERTAIN |
@@ -292,11 +293,24 @@ The workspace is network-isolated, so packages cannot be installed at runtime. E
 
 ## Installation and deployment
 
-AIRAlock is deployed into a DRE workspace as a flat set of R files alongside `app.R`. There is no build step; the platform handles deployment and identity.
+AIRAlock can be deployed into a DRE workspace as a flat set of R files alongside `app.R` (ie no build step) or can be deployed as a containerised community app into a customer's ACR. All required and optional dependencies are installed during image build.
+
+### Building a container image
+
+AIRAlock can be packaged as a container image for deployment into DRE workspaces. The supplied Dockerfile pre-installs all required and optional R package dependencies because workspace environments are network isolated and do not permit runtime package installation.
+
+Build the image:
 
 ```bash
-# Place the application under the persistent workspace store
-cd /home/workspace/files/
+docker build -t airalock:latest .
+```
+
+### Deploying as a shiny app
+
+Create a new Shiny (R Webapp) within your DRE workpace, and upload a zipped file download of this github repository contents, to the workspace file location where the app was created.
+
+``` bash
+cd /home/workspace/files/<myappname> 
 unzip airlock_checker_<version>.zip
 # The result is a single folder with all R files flat alongside app.R
 ```
