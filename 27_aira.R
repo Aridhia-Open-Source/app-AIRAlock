@@ -41,7 +41,21 @@ AIRA_MISSING_PACKAGES <- .aira_required_pkgs[!vapply(
 
 # ── Constants ───────────────────────────────────────────────────────────────
 
-AIRA_BASE_URL_DEFAULT  <- "https://api.uksouth.saas.aridhia.io/api/aira/v1"
+aira_base_url_default <- function() {
+  app_hostname <- Sys.getenv("APP_HOSTNAME", unset = "")
+
+  if (!nzchar(app_hostname)) {
+    return("https://api.uksouth.saas.aridhia.io/api/aira/v1")
+  }
+
+  paste0(
+    "https://api.",
+    sub("^[^.]+\\.", "", app_hostname),
+    "/api/aira/v1"
+  )
+}
+
+AIRA_BASE_URL_DEFAULT <- aira_base_url_default()
 AIRA_TIMEOUT_S_DEFAULT       <- 15L   # per-file default; short because per-file calls are small
 AIRA_TIMEOUT_S_BATCH_DEFAULT <- 45L   # batch default; larger because batch prompts are 4-10x larger
 AIRA_MAX_HITS_IN_PROMPT <- 15L

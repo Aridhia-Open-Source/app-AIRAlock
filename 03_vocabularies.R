@@ -1,6 +1,22 @@
 # Vocabulary lists, QI categories, and DEFAULT_CFG
 # Auto-split from app.R - do not edit the monolithic file
 
+
+AIRA_BASE_URL_DEFAULT <- {
+  app_hostname <- Sys.getenv("APP_HOSTNAME", unset = "")
+
+  if (nzchar(app_hostname)) {
+    paste0(
+      "https://api.",
+      sub("^[^.]+\\.", "", app_hostname),
+      "/api/aira/v1"
+    )
+  } else {
+    "https://api.uksouth.saas.aridhia.io/api/aira/v1"
+  }
+}
+
+
 # ============================================================
 # QUASI-IDENTIFIER CATEGORIES (for cross-file linkage detection)
 # ============================================================
@@ -141,7 +157,7 @@ DEFAULT_CFG <- list(
     #   3. Set aira$enabled = TRUE (via config UI or by editing the saved JSON)
     aira = list(
       enabled         = TRUE,
-      base_url        = "https://api.uksouth.saas.aridhia.io/api/aira/v1",
+      base_url        = AIRA_BASE_URL_DEFAULT,
       model           = "workspace-chat",
       timeout_s_file  = 500L,    # per-file calls: short prompts, fast response
       timeout_s_batch = 500L,    # batch calls: larger prompts need more headroom
