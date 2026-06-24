@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <entry>
+    <resource>
+      <Patient>
+        <id value="12345"/>
+      </Patient>
+    </resource>
+  </entry>
+</Bundle>

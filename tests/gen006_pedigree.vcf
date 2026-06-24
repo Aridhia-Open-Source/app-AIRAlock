@@ -1,0 +1,5 @@
+##fileformat=VCFv4.2
+##PEDIGREE=<Child=CHILD_01,Mother=MOTHER_01,Father=FATHER_01>
+##SAMPLE=<ID=SAMPLE1,Description="Proband">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	rs1	A	G	99	PASS	.

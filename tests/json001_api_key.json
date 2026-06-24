@@ -1,0 +1,5 @@
+{
+  "database": "research_db",
+  "api_key": "sk-proj-abc123def456",
+  "port": 5432
+}
