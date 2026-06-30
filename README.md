@@ -222,7 +222,7 @@ The prompt receives the rule engine output as its primary input, plus a bounded 
 
 ## Operating modes
 
-The application runs in one of two modes, sharing the same codebase but exposing different actions. Mode is read at startup from `app_mode.txt` in the application directory. If the file is absent or invalid, the application defaults to reviewer, the safer mode. The current mode is shown in the UI at all times so a user is never unsure whether a decision is binding.
+The application runs in one of two modes: **Researcher** or **Reviewer**. These share the same codebase but expose different actions. Mode is read at startup from `app_mode.txt` in the application directory. If the file is absent or invalid, the application defaults to reviewer, the safer mode. The current mode is shown in the UI at all times so a user is never unsure whether a decision is binding.
 
 | Action | Researcher | Reviewer |
 |---|---|---|
